@@ -1,0 +1,498 @@
+var	href     = "http://znoona200.com.ua/system/";
+var	href_url = "http://znoona200.com.ua/";
+var	href_a   = "http://znoona200.com.ua/system/user/";
+var	href_u   = "http://znoona200.com.ua/system/user";
+
+/*
+var	href   = "http://develife.ru/sports_bets/";
+var	href_a = "http://develife.ru/sports_bets/users/admin/";
+var	href_u = "http://develife.ru/sports_bets/users/user/";
+
+*/
+
+
+
+
+
+
+
+
+
+function eachLink($block) {
+    $block.find("li").each(function(){
+        var $this = $(this),
+            $a    = $(this).find("a");
+        
+        if($a.prop("href") == window.location.href) {
+            $this.addClass("active");
+        }
+    })
+}
+
+$(function(){
+    //eachLink($(".content_tab"))
+    $("body").on("click", ".al_replUserKursPay", function(){
+    	var $this    = $(this),
+    	    id       = $this.data("id"),
+    	    user     = $this.data("user"),
+    	    sk       = $this.data("sk"),
+    	    pay      = $this.data("pay"),
+        	formData = new FormData();
+        	
+        
+        formData.append("flag", "al_replUserKursPay");
+        formData.append("id",   id);
+        formData.append("sk",   sk);
+        formData.append("user", user);
+        formData.append("pay", pay);
+        
+        $.ajax({
+            type: 'POST',
+            url: href +  'inc/func/func.php', 
+            dataType: 'json',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+            	$this.parents(".row").find(".col_2 span").text(data["res"]);
+        	    $this.data("sk", data["sk"]);
+        	    
+            	if(pay == 1)
+            	    $this.data("pay", 0);
+            	else
+            	    $this.data("pay", 1);
+            }
+        });
+        return false;
+    })
+    
+    
+    
+    $(".al_sendCommentMf").on("click", function(){
+    	var id       = $(this).data("id"),
+    		text     = $(".al_commentMf").val(),
+        	formData = new FormData();
+        	
+        
+        formData.append("flag", "al_sendCommentMf");
+        formData.append("id",   id);
+        formData.append("text", text);
+        
+        $.ajax({
+            type: 'POST',
+            url: href +  'inc/func/func.php', 
+            dataType: 'html',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+            	$(".al_commentMf").val("");
+            	$(".all_comment_item").prepend(data);
+            }
+        });
+    		
+    	return false;
+    })
+    $("body").on("click", ".al_addLikeMf", function(){
+    	if(!$(this).hasClass("al_flAccessThisAction")) {
+	        var $this    = $(this),
+	        	id       = $this.data("id"),
+	        	what_is  = $this.data("what"),
+	        	formData = new FormData();
+	
+	        formData.append("flag", "al_addLikeMf");
+	        formData.append("id", id);
+	        formData.append("what_is", what_is);
+	
+	        $.ajax({
+	            type: 'POST',
+	            url: href +  'inc/func/func.php', 
+	            dataType: 'json',
+	            data: formData,
+	            processData: false,
+	            contentType: false,
+	            success: function(data) {
+	        		$this.toggleClass("active");
+        			var $text = $this.find("i");
+        			var text  = $this.find("i").text();
+	        		if(what_is == 1) {
+	        			if($this.hasClass("active"))
+	        				var i = parseInt(text) + 1;
+	        			else
+	        				var i = parseInt(text) - 1;
+	        				
+	                    $text.text(i);
+	        		}
+	        		if(what_is == 2) {
+	        			var text = $this.find("i").text();
+	        			if($this.hasClass("active"))
+	        				var i = parseInt(text) + 1;
+	        			else
+	        				var i = parseInt(text) - 1;
+	        			$text.text(i)
+	        		}
+	            }
+	        });
+    	} else {
+	        $(".login_reg, .ps_login_tab").addClass("active");
+	        $(".ps_reg_tab, .ps_reestablish_tab").removeClass("active");
+	        if($(window).width() < 1150) $(".login_reg").addClass("sm");
+	        var height_pop_up = $(".login_reg .pop_up").outerHeight();
+    	}
+            
+    	return false;
+    })
+        
+    $(".al_buyThisKursMf").on("click", function(){
+        var $this = $(this);
+        if(!$this.hasClass("al_noLog")) {
+        	var $this    = $this,
+        		$id      = $this.data("id"),
+        		formData = new FormData();
+        		
+            formData.append("flag", "al_buyThisKursMf");
+            formData.append("id",   $id);
+            
+            $.ajax({
+                type: 'POST',
+                url: href +  'inc/func/func.php', 
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data){
+                	if(data["error"])
+                		alert(data["error"])
+                	else {
+                        $this.prev().submit();
+                    }
+                }
+            });
+        } else {
+	        $(".login_reg, .ps_login_tab").addClass("active");
+	        $(".ps_reg_tab, .ps_reestablish_tab").removeClass("active");
+	        if($(window).width() < 1150) $(".login_reg").addClass("sm");
+	        var height_pop_up = $(".login_reg .pop_up").outerHeight();
+        }
+    	return false;
+    })
+    $("body").on("change", ".al_imgUpl", function(){
+        
+        var formData = new FormData(),
+            $this    = $(this);
+        formData.append("flag", "insertImg");
+        formData.append("flag2", "ava");
+        
+        jQuery.each($(".al_imgUpl")[0].files, function(i, file) {
+            formData.append('files[]', file);
+        });
+
+
+        $.ajax({
+           type: 'POST',
+           data: formData,
+           dataType: "json",
+           url: href +  'inc/func/func.php',
+           processData: false,
+           contentType: false,
+           multiple: true,
+           success: function (data) {
+               var src2 = href + "inc/" + data['src2'];
+               $(".my_room .top_info .panel .user").html("<img src='"+src2+"' />")
+           }
+        });
+        
+        return false;
+    })
+	$(".al_save_mySet").on("click", function(){
+        var form     = $(this).parents(".wrap_pop_up").find(".info"),
+        	error  = false;
+            
+        
+        form.find("input").each(function(){
+            if($(this).val() == ''){
+                $(this).css({"border-bottom" : "1px solid red"});
+                error = true;
+            } else
+                $(this).css({"border-bottom" : "1px solid rgba(0, 0, 0, 0.12)"})
+        })
+        
+        if(!error){
+        	
+	        var formData = new FormData();
+	        
+	        formData.append("flag", "al_save_mySet");
+	        form.find("input").each(function() {
+	            formData.append($(this).prop("name"), $(this).val());
+	        });
+	        
+	        $.ajax({
+	            type: 'POST',
+	            url: href +  'inc/func/func.php', 
+	            dataType: 'json',
+	            data: formData,
+	            processData: false,
+	            contentType: false,
+	            success: function(data){
+	            	if(data["error"])
+	            		alert(data["error"])
+	            	else {
+	            	    alert("Вашi даннi сбереженi")
+                        //location.reload();
+                    }
+	            }
+	        });
+        }
+	    return false;
+	})
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    /* ================================= */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	$(".al_userLogin").on("click", function(){
+        var form   = $(this).parents("form"),
+        	error  = false;
+        
+        form.find("input").each(function(){
+            if($(this).val() == ''){
+                $(this).parent().addClass("necessarily");
+                error = true;
+            } else
+                $(this).parent().removeClass("necessarily");
+        })
+        
+        if(!error){
+        	
+	        var formData = new FormData();
+	        
+	        formData.append("flag", "al_userLogin");
+	        form.find("input").each(function() {
+	            formData.append($(this).prop("name"), $(this).val());
+	        });
+	        
+	        $.ajax({
+	            type: 'POST',
+	            url: href +  'inc/func/func.php', 
+	            dataType: 'json',
+	            data: formData,
+	            processData: false,
+	            contentType: false,
+	            success: function(data){
+	            	if(data["error"])
+	            		alert(data["error"])
+	            	else {
+                        if(data["admin"] == 0)
+	            		    location.href = href_u;
+                        else
+	            		    location.href = href_a;
+                    }
+	            }
+	        });
+        }
+	        
+		return false;
+	})
+	$("body").on("click", ".alex_logout", function(){
+        var formData = new FormData();
+        
+        formData.append("flag", "alex_logout");
+        
+        $.ajax({
+            type: 'POST',
+            url: href +  'inc/func/func.php', 
+            dataType: 'json',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data){
+				$(location).prop('href', href_url);
+            }
+        });
+	        
+		return false;
+	})
+	$(".al_regUser").on("click", function(){
+        var form   = $(this).parent(),
+        	error  = false;
+        
+        form.find("input").each(function(){
+            if($(this).val() == ''){
+                $(this).parent().addClass("necessarily");
+                error = true;
+            } else
+                $(this).parent().removeClass("necessarily");
+        })
+        
+        var $pass = form.find("[name=pass]"),
+            $pass2 = form.find("[name=pass2]");
+        var pass = $pass.val(),
+            pass2 = $pass2.val();
+        
+        if(!error){
+            if(pass == pass2) {
+                $pass.parent().removeClass("necessarily");
+                $pass2.parent().removeClass("necessarily");
+        	
+                var formData = new FormData();
+
+                formData.append("flag", "al_regUser");
+                form.find("input, select").each(function() {
+                   formData.append($(this).prop("name"), $(this).val());
+                });
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: href +  'inc/func/func.php', 
+                    dataType: 'json',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data){
+                        if(data["error"] && data["error"] != 0)
+                            alert(data["error"])
+                        else
+                            location.href = data["url"];
+                    }
+                });
+            } else {
+                $pass.parent().addClass("necessarily");
+                $pass2.parent().addClass("necessarily");
+            }
+        }
+	        
+		return false;
+	})
+	$(".alex_forgotPass").on("click", function(){
+        var form   = $(this).parent(),
+        	error  = false;
+        
+        form.find("input").each(function(){
+            if($(this).val() == ''){
+                $(this).parent().addClass("necessarily");
+                error = true;
+            } else
+                $(this).parent().removeClass("necessarily");
+        })
+        
+        if(!error){
+            var formData = new FormData();
+
+            formData.append("flag", "alex_forgotPass");
+            form.find("input").each(function() {
+               formData.append($(this).prop("name"), $(this).val());
+            });
+
+
+            $.ajax({
+                type: 'POST',
+                url: href +  'inc/func/func.php', 
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data){
+                 if(data["error"] && data["error"] != 0)
+                     alert(data["error"])
+                 else
+                     alert("Вам надіслано листа на пошту з новим паролем")
+                }
+            });
+        }
+        return false;
+    })
+    $("body").on("click", ".add_eventImg", function(){
+        $(".alex_eventImg").trigger("click");
+        return false;
+    })
+    $("body").on("click", ".add_avatar", function(){
+        $(".alex_ava").trigger("click");
+        return false;
+    })
+    $("body").on("change", ".alex_ava", function(){
+        
+        var formData = new FormData();
+        formData.append("flag", "insertImg");
+        formData.append("flag2", "ava");
+
+        jQuery.each($(".alex_ava")[0].files, function(i, file) {
+            formData.append('file', file);
+        });
+
+
+        $.ajax({
+           type: 'POST',
+           data: formData,
+           dataType: "json",
+           url: href +  'inc/func/func.php',
+           processData: false,
+           contentType: false,
+           multiple: true,
+           success: function (data) {
+               $(".al_editLinkImg").prop("src", data["src"]);
+               $(".al_editLinkImg").data("src", data["src2"]);
+           }
+        });
+        
+        return false;
+    })
+    $("body").on("change", ".alex_eventImg", function(){
+        
+        var formData = new FormData();
+        formData.append("flag", "insertImg");
+        formData.append("flag2", "event");
+
+        jQuery.each($(".alex_eventImg")[0].files, function(i, file) {
+            formData.append('file', file);
+        });
+
+
+        $.ajax({
+           type: 'POST',
+           data: formData,
+           dataType: "json",
+           url: href +  'inc/func/func.php',
+           processData: false,
+           contentType: false,
+           multiple: true,
+           success: function (data) {
+               $(".al_editEventImg").prop("src", data["src"]);
+               $(".al_editEventImg").data("src", data["src2"]);
+           }
+        });
+        
+        return false;
+    })
+    
+});

@@ -1,0 +1,736 @@
+*{ margin:0; padding:0;}
+
+::-webkit-input-placeholder {color:rgba(24, 24, 24, 0.2);}
+::-moz-placeholder          {color:rgba(24, 24, 24, 0.2);}
+:-moz-placeholder           {color:rgba(24, 24, 24, 0.2);}
+:-ms-input-placeholder      {color:rgba(24, 24, 24, 0.2);}
+
+.login_reg .main_form input::-webkit-input-placeholder {font-size: 11px;}
+.login_reg .main_form input::-moz-placeholder          {font-size: 11px;}
+.login_reg .main_form input:-moz-placeholder           {font-size: 11px;}
+.login_reg .main_form input:-ms-input-placeholder      {font-size: 11px;}
+
+/*********************************************************************************************/
+/*********************************************************************************************/
+
+body, textarea, input, select {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+body {
+    background: #F8F8F8;
+}
+
+.container {
+    width: 1150px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 42px;
+    color: #fff;
+    padding-left: 30px;
+    padding-right: 48px;
+    border: 1.5px solid #C90000;
+    border-radius: 40px;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+}
+    .btn:before {
+        display: inline-block;
+        content: "";
+        width: 13px; 
+        height: 18px;
+        margin-top: -9px;
+        position: absolute;
+        top: 50%; right: 30px;
+        background: url(../img/btn_attr.png) no-repeat;
+        background-size: cover;
+    }
+    .btn:hover {
+        background: #C90000;
+    }
+    .btn:hover:before {
+        -webkit-transform: rotate(360deg); 
+        transform: rotate(360deg); 
+    }
+
+.btn_red {
+    display: block;
+    text-align: center;
+    border: 1.5px solid #C90000;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 39px;
+    color: #4F4F4F;
+}
+    .btn_red:hover {
+        background: #C90000;
+        color: #fff;
+    }
+.btn.sm {
+    padding: 0 30px;
+    line-height: 38px;
+}
+    .btn.sm:before {
+        display: none;
+    }
+.btn.white {
+    color: #fff;
+    border: 2px solid #fff;
+}
+    .btn.white:hover {
+        border: 2px solid #C90000;
+    }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---                                                                                                                               --- */
+/*                                                       Текстовые Стили                                                                 */
+/* ---                                                                                                                               --- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+.object_fit {
+    display: block;
+    overflow: hidden;
+}
+.object_fit img, .main_banner .background img, .img_bg .background img, .item_link .item .parent_photo img, .all_comment_item .item .photo img, .text_img .parent_img img, .my_room .top_info .top_img img, .my_room .user img, .edit_my_profile .photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    -o-object-fit: cover;
+    -webkit-object-fit: cover;
+    -moz-object-fit: cover;
+}
+footer .social li a:before, footer .social li a:after, .main_banner .background:before, .letter_block:before, .img_bg .background:before, .all_comment_item .item.text_hide .text_comment:before, .text_img .parent_img:before, .header_bg:after, .header_bg:before, .parent_input.eye a:before, .parent_input.eye a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+} 
+.main_banner .background, .img_bg .background, .letter_block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+}
+
+.btn, header,  *:before, *:after, .scale img, .like_comm a i, .all_comment_item .item .text_comment, .item_link .item, .select_menu ul li a, .select_theme .main_themes li, .start_test_theme .parent_img, .pagination ul li a, .test.text_img .parent_text, .edit_profile, .static .slide, header .btn_login, .useful .tab_list li a, .useful .all_item .item .name, .login_reg .main_form .ps_tab_panel li a, input[type=checkbox] + label, .login_bottom .fogot_pass, .btn_red    {
+    transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
+}
+
+
+
+.opacity_a a:before, .opacity_a a:hover:after, .opacity_a a.active:after, .head_menu a:hover:before, .head_menu .active a:before, .like_comm a span:before, .like_comm a:hover span:after, .like_comm a.active span:after, .hover:before, .hover:hover:after {
+    opacity: 1;
+}
+.opacity_a a:after, .opacity_a a:hover:before, .opacity_a a.active:before, .head_menu a:before, .like_comm a span:after, .like_comm a.active span:before, .like_comm a:hover span:before, .hover:after, .hover:hover:before {
+    opacity: 0;
+}
+
+/******************************** -- Настройка FORM -- *****************************************/
+/******************************** -- Настройка FORM -- *****************************************/
+/******************************** -- Настройка FORM -- *****************************************/
+input {
+    height: 30px;
+    padding: 0 5px;
+}
+textarea, input { 
+    border: 1px solid transparent;
+    color: #4F4F4F;
+}
+    textarea:focus, input:focus { 
+        border: 1px solid #4F4F4F; 
+    }
+input[type=submit] {
+    border: 1px solid #ccc; 
+}
+    input[type=submit]:focus {
+        border: 1px solid red; 
+    } 
+textarea {
+    resize: none;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+
+
+/******************************** -- Плавающая шапка -- *****************************************/
+/******************************** -- Плавающая шапка -- *****************************************/
+.b_fix {
+    height: 1px;
+    background: transparent;
+    position: fixed;
+    top: 0;
+}
+header {
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    top: 0; left: 0;
+}
+.scale {
+    overflow: hidden;
+}
+    .scale img {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+        .scale:hover img, .item_link .item:hover img, .popular_article .item:hover img {
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+        }
+.ul_hover_line a, .hover_line {
+    display: inline-block;
+    position: relative;
+}
+    .ul_hover_line a:before, .hover_line:before, .hover_line_after:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 0;
+        height: 1px;
+        background: #181818;
+        left: 0; bottom: 0;
+    }
+    footer .link li a:hover:before, .hover_line:hover:before, .hover_line_after:hover:after  {
+        width: 100%;
+    }
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---                                                                                                                               --- */
+/*                                              Слайдер Slider слайдер slider slick                                                      */
+/* ---                                                                                                                               --- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+.slick-slide:focus, .slick-slide * {
+    outline: none;
+}
+.slick-slide {
+    padding: 0; /* <<------- отступ между слайдами --------- */
+}
+
+.slick-prev, .slick-next {
+    height: 57px;
+    width: 36px; 
+    z-index: 9;
+}
+.slick-prev {
+    left: -66px; /* <<-------заменить параметр--------- */
+}
+.slick-next {
+    right: -66px; /* <<-------заменить параметр--------- */
+}
+    .slick-prev:before, .slick-next:before, .slick-prev:after, .slick-next:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%; height: 100%;
+        top: 0; left: 0;
+        background-size: cover !important;
+    }
+    .slick-prev:before {
+        background: url(../img/sl_prev.png) no-repeat;
+    }
+        .slick-prev:after {
+            background: url(../img/sl_prev_a.png) no-repeat; /* <<------- при наведении --------- */
+        }
+    .slick-next:before {
+        background: url(../img/sl_next.png) no-repeat;
+    } 
+        .slick-next:after {
+            background: url(../img/sl_next_a.png) no-repeat; /* <<------- при наведении --------- */
+        }
+.slick-prev:hover:before, .slick-next:hover:before, .slick-prev:after, .slick-next:after {
+    opacity: 0;
+}
+.slick-prev:hover:after, .slick-next:hover:after, .slick-prev:before, .slick-next:before {
+    opacity: 1
+}
+/**********************************************************************************************************************************************/
+/**********************************************************************************************************************************************/
+/**********************************************************************************************************************************************/
+
+.clear {
+	clear: both;
+}
+.clearfix:after, .all_comment_item .item:after, .wrap_pop_up:after, .text:after, .reit:after, .like_comm:after, .like_comm a:after, .pagination .ul:after, .item_line .body_item:after, .item_line .body_item .item:after, .main_text_block .wrapp ul:after, .main_text_block .wrapp p:after, .static_table .row:after, header .container:after, .item_round .item .text_block, .mob_logo:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.page_wrapper {
+    position: relative;
+}
+    .page_wrapper footer {
+        width: 100%;
+        position: absolute;
+        left: 0; bottom: 0;
+    }
+/**********************************************************************************************************************************************/
+/**********************************************************************************************************************************************/
+/**********************************************************************************************************************************************/
+html, body {
+    overflow-x: hidden;
+}
+
+.box, div, p, section, header, footer, input, textarea, select, label, time, nav, article, form, ul, ol, li, h1, h2, h3, h4, h5, h6, a, span, i, b, *:before, *:after {
+    box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+    -o-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+}
+
+button:focus, input[type=submit], input[type=search], select:focus, textarea:focus { outline: none; }
+
+a { text-decoration: none; }
+
+textarea, input { 
+    -webkit-appearance: none; 
+    border-radius: 0;
+    outline: none;
+}
+
+button, input[type=submit]{
+    display: block;
+    background: transparent;
+    cursor: pointer;
+    -webkit-appearance: none;
+    height: auto;
+    padding: 0;
+} 
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---                                                                                                                               --- */
+/*                                        parent_pop_up pop_up (Всплывающее окно)                                                        */
+/* ---                                                                                                                               --- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+.parent_pop_up {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: -11;
+    opacity: 0;
+    background: rgba(15, 15, 15, 0.2);  
+}
+.parent_pop_up.active {
+    z-index: 9999;
+    opacity: 1;
+}
+
+    .parent_pop_up .pop_up {
+        z-index: 99;
+        width: 400px;
+        position: absolute;
+        top: 0; left: 50%;
+        padding: 50px 0;
+    } 
+    .parent_pop_up .wrap_pop_up {
+        padding: 36px 30px;
+        background: #fff;
+        border-radius: 20px;
+        position: relative;
+    }
+    .parent_pop_up .close, .parent_pop_up.sm .close {
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: -18px; right: -34px;
+        cursor: pointer;
+        background: transparent;
+        border-radius: 0;
+    } 
+    .parent_pop_up .close:before, .parent_pop_up .close:after, .parent_pop_up.sm .close:before, .parent_pop_up.sm .close:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; right: 0;
+        cursor: pointer;
+    }
+    .parent_pop_up .close:before, .parent_pop_up.sm .close:before {
+        background: url(../img/close_pop_up.png) no-repeat;
+        opacity: 1;
+    }
+    .parent_pop_up .close:after, .parent_pop_up.sm .close:after {
+        background: url(../img/close_pop_up_a.png) no-repeat;
+        opacity: 0;
+    }
+    .parent_pop_up .close:hover:after, .parent_pop_up.sm .close:hover:after {
+        opacity: 1;
+    }
+    .parent_pop_up .close:hover:before, .parent_pop_up.sm .close:hover:before {
+        opacity: 1;
+    }
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---                                                                                                                               --- */
+/*                                             select_menu (Выпадающий список)                                                           */
+/* ---                                                                                                                               --- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+.select_menu {
+    position: relative;
+}
+    .select_menu .value {
+        font-size: 16px;       
+        line-height: 42px;   
+        max-height: 42px;    
+        padding-left: 30px;   
+        padding-right: 60px;   
+        color: #4c4c4c;            
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        border: 2px solid #C90000;
+        font-weight: 500;
+        border-radius: 20px;
+        text-transform: uppercase;
+        max-width: 410px;
+        word-break: break-all;
+    } 
+    .select_menu.active .value {
+        border-radius: 20px 20px 0 0;
+        background: #fff;
+    }
+        .select_menu .value:before {
+            width: 18px;             
+            height: 13px;        
+            right: 30px;         
+            background: url(../img/attr.png) no-repeat; 
+            background-size: cover;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 13px;  
+        }
+        .select_menu.active .value:before { 
+            -webkit-transform: rotate(180deg); 
+            transform: rotate(180deg);  
+        }
+    .select_menu ul {
+        top: 40px;                     /* <<-------заменить параметр--------- */
+        border: 2px solid #C90000;     /* <<-------заменить параметр--------- */
+        border-radius: 0 0 15px 15px;          /* <<-------заменить параметр--------- */
+        left: 0;
+        z-index: 9;
+        display: none;
+        list-style: none;
+        position: absolute;
+        width: 100%;
+    }
+    .select_menu.active ul {
+        display: block;
+        background: #fff;
+    } 
+        .select_menu.active ul li a {
+            display: block;
+            padding: 0 10px;       /* <<-------заменить параметр--------- */
+            line-height: 30px;     /* <<-------заменить параметр--------- */
+            color: #4c4c4c;    
+        }
+            .select_menu.active ul li a:hover {
+                color: #C90000;         /* <<-------заменить параметр--------- */
+            }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---                                                                                                                               --- */
+/*                                     ps_tab_panel ТАБЫ табы TAB tab                                                                   */
+/* ---                                                                                                                               --- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+.ps_tab_panel {
+    list-style: none;
+}
+    .ps_tab_panel .active a {
+        color: red;
+    }
+
+.ps_tabs_screen {
+    position: relative;
+}
+     .ps_tabs_screen .ps_tab {
+        display: none;
+    }
+    .ps_tabs_screen .ps_tab.active {
+       display: block;
+    }
+   
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---                                                                                                                               --- */
+/*                                             checkbox / radio / CHECKBOX / RADIO                                                       */
+/* ---                                                                                                                               --- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+input[type=checkbox], input[type=radio] {
+        display: none;
+        float: left;
+    } 
+    input[type=checkbox] + label, input[type=radio] + label {
+        display: block;
+        cursor: pointer;
+        float: left;
+    } 
+    input[type=checkbox] + label span, input[type=radio] + label span {
+        display: inline-block;
+    } 
+
+        input[type=checkbox] + label {
+            position: relative;
+            padding-left: 28px;  
+            display: inline-block;
+            color: #ccc;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 20px;
+        }
+        input[type=checkbox] + label:hover {
+            color: #a80000;
+        }
+        input[type=checkbox] + label:before {
+            display: block;
+            content: "";
+            width: 20px;
+            height: 20px;
+            border: 2px solid #c4c4c4; 
+            border-radius: 5px;
+            position: absolute;
+            left: 0; top: 0;
+        }
+        input[type=checkbox] + label:after {
+            display: block;
+            content: "";
+            width: 17px; height: 14px;
+            position: absolute;
+            left: 4px; top: 1px;
+            background: url(../img/check.png) no-repeat;
+            opacity: 0;
+        }
+        input[type=checkbox]:checked + label:after  {
+            opacity: 1; 
+        }
+       
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---                                                                                                                               --- */
+/*                                                   Мобильное меню кнопка                                                               */
+/* ---                                                                                                                               --- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+.open_mob_menu {
+    display: none;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+    .open_mob_menu span, .open_mob_menu:before, .open_mob_menu:after {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 6px;
+        background: #fff;
+        left: 0;
+        -webkit-transition: 0.2s ease-out;
+        transition: 0.2s ease-out;
+        border-radius: 5px;
+    } 
+    .open_mob_menu span {
+        top: 50%;
+        margin-top: -3px;
+    }
+    .open_mob_menu:before, .open_mob_menu:after {
+        content: "";
+        -webkit-transform: rotate(0); 
+        transform: rotate(0); 
+        transform-origin: 0px 0px;
+	    -ms-transform-origin: 0px 0px;
+	    -webkit-transform-origin: 0px 0px;
+	    -o-transform-origin: 0px 0px;
+	    -moz-transform-origin: 0px 0px;
+    }
+    
+    .open_mob_menu:before {top: 0;}
+    .open_mob_menu:after {bottom: 0;}
+
+    .open_mob_menu.active:before {
+        top: 2px; left: 7px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        border-radius: 0;
+    }
+    .open_mob_menu.active:after {
+        bottom: 2px; left: 3px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        border-radius: 0;
+    }
+    .open_mob_menu.active span {
+        opacity: 0;
+        left: -100%;
+    }
+/**********************************************************************************************************************************************/
+
+@media (max-width: 1150px){
+    .container {
+        width: 1024px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }    
+    .parent_pop_up .pop_up {
+        padding: 40px 0;
+    } 
+    
+}
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+@media (max-width: 1024px){
+    .container {
+        width: 991px;
+    }  
+}
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+@media (max-width: 991px){
+    
+    .container {
+        left: 0;
+        position: relative;
+    }
+    .parent_pop_up .pop_up {
+        padding: 30px 0;
+    } 
+  
+/* -----------------------mob_menu_width------------------------------------- */
+/* -----------------------mob_menu_width------------------------------------- */
+    .container {
+        width: 768px;
+    }
+    header .row .wrapp_bg {
+        width: 100%;
+    } 
+    header .row .wrapp_bg .wrapp_menu {
+        width: 260px;
+        left: -100%;
+    }
+    header .row.active .wrapp_bg .wrapp_menu {
+        left: 0;
+    }
+    header .row .wrapp_bg .wrapp_menu, header .row .wrapp_bg:before {
+        background: #191A1D;   /* <<<<----- ЦВЕТ МОБ. МЕНЮ <<<<----- */
+    }
+/* -----------------------mob_menu_width------------------------------------- */
+/* -----------------------mob_menu_width------------------------------------- */
+     
+    .container, header .row.active .wrapp_bg .wrapp_menu {
+        -webkit-transition: left 0.3s ease-out;
+        transition: left 0.3s ease-out;
+    }  
+    .open_mob_menu {
+        display: block;
+        z-index: 999;
+        float: left;
+    }
+    header .row {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        margin: 0;
+        overflow: hidden;
+        background: rgba(0,0,0,0.5);
+    }
+        header .row.active { left: 0;}
+
+        header .row .wrapp_bg {
+            margin: 0 auto;
+            position: relative;
+            height: 100%;  
+        }
+        header .row .wrapp_bg .wrapp_menu {
+            height: 100%;
+            position: relative;
+            overflow-y: auto;
+        }    
+}
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+@media (max-width: 767px){
+    .parent_pop_up .pop_up {
+        padding: 25px 0;
+    }
+/* -----------------------mob_menu_width------------------------------------- */
+/* -----------------------mob_menu_width------------------------------------- */
+    .container {
+        width: 100%;
+    } 
+    header .row .wrapp_bg .wrapp_menu {
+        width: 260px;
+    }
+    .container.active {
+        left: 270px;
+    }
+/* -----------------------mob_menu_width------------------------------------- */
+/* -----------------------mob_menu_width------------------------------------- */
+   
+   
+}
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+@media (max-width: 399px){
+    
+/* -----------------------mob_menu_width------------------------------------- */
+/* -----------------------mob_menu_width------------------------------------- */
+    header .row .wrapp_bg .wrapp_menu {
+        width: 260px;
+    }
+/* -----------------------mob_menu_width------------------------------------- */
+/* -----------------------mob_menu_width------------------------------------- */ 
+}
